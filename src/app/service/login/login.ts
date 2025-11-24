@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserLogin } from '../../model/user-login';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,9 @@ export class LoginService {
   logout() {
     localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
+  }
+
+  registerUser(user: UserLogin) {
+    return this.http.post<UserLogin>(this.apiUrl + '/auth/register-user', user);
   }
 }

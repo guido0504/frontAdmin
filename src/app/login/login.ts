@@ -29,7 +29,6 @@ export class LoginComponent {
         this.router.navigate(['/home']);
       },
       error: (err) => {
-        console.log(err.error.message);
         this.toastService.showError(err.error.message);
       },
     });
