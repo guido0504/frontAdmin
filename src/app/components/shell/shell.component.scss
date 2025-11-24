@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+/* contenedor de todo el layout (header + contenido) */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+/* zona central (router-outlet) */
+.main-content {
+  flex: 1;
+  padding-top: 56px;              /* altura aproximada de la navbar fixed-top */
+  transition: margin-left 0.3s ease;
+}
+
+/* Cuando el menú lateral está abierto */
+.wrapper.sidebar-open .main-content {
+  margin-left: 260px;             /* mismo ancho que el offcanvas */
+}

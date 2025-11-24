@@ -1,0 +1,22 @@
+/* Ancho del menú lateral */
+#offcanvasNavbar {
+  --bs-offcanvas-width: 260px;   /* elegí el ancho que quieras */
+}
+
+/* Que el offcanvas salga desde arriba y ocupe todo el alto */
+.offcanvas-start {
+  top: 0;
+  height: 100vh;
+}
+
+/* Opcional: que el fondo oscuro no tape el header */
+.offcanvas-backdrop.show {
+  top: 0;
+}
+
+:host-context(.sidebar-open) .navbar {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+}
+
+
