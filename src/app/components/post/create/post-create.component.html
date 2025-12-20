@@ -1,1 +1,45 @@
-<p>post-create works!</p>
+<p-toast />
+
+<div style="display: flex; justify-content: center; margin-bottom: 1rem; margin-top: 1rem;">
+    <h1 class="h1">Crear post</h1>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p-inputgroup class="mb-2 mt-2 mr-2 ml-2 file-row">
+        <input #fileInput type="file" (change)="onSelectImage($event)" accept="image/*" class="file-input" />
+
+        <p-button icon="pi pi-upload" styleClass="p-button-success p-button-rounded" type="button"
+            (onClick)="addImage()"></p-button>
+
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 mt-2 ">
+        <p-inputgroup-addon>
+            <i class="pi pi-pencil"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Title" formControlName="title" />
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 mt-2">
+        <p-floatlabel variant="on">
+            <textarea pTextarea id="over_label" rows="10" cols="55" style="resize: none" formControlName="body"
+                class="h-full"></textarea>
+            <label for="on_label">Cuerpo</label>
+        </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 mt-2">
+        <p-inputgroup-addon>
+            <i class="pi pi-book"></i>
+        </p-inputgroup-addon>
+        <p-select [options]="tipoEventos" formControlName="tipoEvento" optionLabel="nombre"
+            placeholder="Seleccione un Tipo evento" class="w-full md:w-56" [editable]="true" optionValue="id" />
+    </p-inputgroup>
+
+    <p-datepicker fluid inputId="calendar-24h" [iconDisplay]="'input'" formControlName="fechaHora" [showIcon]="true"
+        [showTime]="true" hourFormat="24" dateFormat="dd/mm/yy" />
+
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; margin-top: 1rem;">
+        <p-button label="Guardar" styleClass="p-button-success p-button-rounded" type="submit"></p-button>
+    </div>
+</form>

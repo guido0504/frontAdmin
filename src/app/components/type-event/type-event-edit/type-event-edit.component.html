@@ -1,0 +1,18 @@
+<p-toast />
+
+<div style="display: flex; justify-content: center; margin-bottom: 1rem; margin-top: 1rem;">
+    <h1>Editar tipo de evento</h1>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p-inputgroup class="mb-2 mt-2 ">
+        <p-inputgroup-addon>
+            <i class="pi pi-book"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Nombre" formControlName="nombre" />
+    </p-inputgroup>
+
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; margin-top: 1rem;">
+        <p-button label="Guardar" styleClass="p-button-success p-button-rounded" type="submit"></p-button>
+    </div>
+</form>

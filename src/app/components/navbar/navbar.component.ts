@@ -50,4 +50,8 @@ export class NavbarComponent {
   login() {
     this.route.navigate(['/login']);
   }
+
+  ruta(ruta: string) {
+    this.route.navigate([ruta]);
+  }
 }

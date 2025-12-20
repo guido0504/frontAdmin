@@ -13,7 +13,6 @@ export class ShellComponent {
   sidebarOpen = false;
 
   onSidebarChange(isOpen: any) {
-    debugger;
     this.sidebarOpen = isOpen;
   }
 }

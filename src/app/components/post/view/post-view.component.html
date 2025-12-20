@@ -1,1 +1,42 @@
-<p>post-view works!</p>
+<div style="display: flex; justify-content: center; margin-bottom: 1rem; margin-top: 1rem;">
+    <h1>POSTS</h1>
+</div>
+
+<div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; margin-top: 1rem;">
+    <p-button label="Nuevo post" icon="pi pi-plus" styleClass="espacio p-button-success p-button-rounded"
+        (click)="createPost()">
+
+    </p-button>
+</div>
+
+<p-table [value]="posts" responsiveLayout="scroll" styleClass="espacio">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Post</th>
+            <th>Título</th>
+            <th>Contenido</th>
+            <th>Tipo evento</th>
+            <th>Imagen</th>
+            <th>Fecha evento</th>
+            <th>Fecha creación</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-post>
+        <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body}}</td>
+            <td>{{ post.tipoEvento.nombre}}</td>
+            <td><img [src]="post.imageUrl" alt="" style="width: 75px; height: 75px;"></td>
+            <td>{{ post.fechaHora}}</td>
+            <td>{{ post.createdAt}}</td>
+            <td>
+                <button class="button-icon" pButton icon="pi pi-pencil" class="p-button-text"
+                    (click)="editPost(post)"></button>
+                <button class="button-icon" pButton icon="pi pi-trash" class="p-button-text"
+                    (click)="deletePost(post)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

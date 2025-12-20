@@ -1,0 +1,26 @@
+<p-toast />
+<h2 class="text-center mt-2">Creación de usuario</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <p-inputgroup class="mb-2 mt-2 ">
+        <p-inputgroup-addon>
+            <i class="pi pi-user"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Username" formControlName="username" />
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 mt-2">
+        <p-inputgroup-addon>
+            <i class="pi pi-lock"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Password" formControlName="password" />
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 mt-2">
+        <p-inputgroup-addon>
+            <i class="pi pi-envelope"></i>
+        </p-inputgroup-addon>
+        <input pInputText placeholder="Email" formControlName="email" />
+    </p-inputgroup>
+
+    <p-button class="mt-2 w-full p-button-rounded p-button-lg" label="Crear usuario" type="submit" />
+</form>

@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { TipoEvento } from '../../model/tipo-evento';
 import { Observable } from 'rxjs';
+import { TipoEventoResponse } from '../../model/tipo-evento-response';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,10 @@ export class TipoEventoService {
 
   constructor(private http: HttpClient) {}
 
-  getTipoEventos(): Observable<TipoEvento[]> {
-    return this.http.get<TipoEvento[]>(this.apiUrl + '/tipo-evento/getAll');
+  getTipoEventos(): Observable<TipoEventoResponse> {
+    return this.http.get<TipoEventoResponse>(
+      this.apiUrl + '/tipo-evento/getAll'
+    );
   }
 
   getTipoEvento(id: number): Observable<TipoEvento> {
@@ -22,16 +25,16 @@ export class TipoEventoService {
     );
   }
 
-  createTipoEvento(tipoEvento: TipoEvento): Observable<TipoEvento> {
+  createTipoEvento(tipoEventoRequestDto: TipoEvento): Observable<TipoEvento> {
     return this.http.post<TipoEvento>(
       this.apiUrl + '/tipo-evento/create',
-      tipoEvento
+      tipoEventoRequestDto
     );
   }
 
-  updateTipoEvento(id: number, tipoEvento: TipoEvento): Observable<TipoEvento> {
+  updateTipoEvento(tipoEvento: TipoEvento): Observable<TipoEvento> {
     return this.http.put<TipoEvento>(
-      this.apiUrl + '/tipo-evento/update/' + id,
+      this.apiUrl + '/tipo-evento/update',
       tipoEvento
     );
   }

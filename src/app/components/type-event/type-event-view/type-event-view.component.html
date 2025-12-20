@@ -1,0 +1,32 @@
+<div style="display: flex; justify-content: center; margin-bottom: 1rem; margin-top: 1rem;">
+    <h1>Tipos de Evento</h1>
+</div>
+
+<div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; margin-top: 1rem;">
+    <p-button label="Nuevo tipo de evento" icon="pi pi-plus" styleClass="espacio p-button-success p-button-rounded"
+        (click)="createTypeEvent()">
+
+    </p-button>
+</div>
+
+<p-table [value]="tipoEventos" responsiveLayout="scroll" styleClass="espacio">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Identificador evento</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tipoEvento>
+        <tr>
+            <td>{{ tipoEvento.id }}</td>
+            <td>{{ tipoEvento.nombre }}</td>
+            <td>
+                <button class="button-icon" pButton icon="pi pi-pencil" class="p-button-text"
+                    (click)="editTypeEvent(tipoEvento)"></button>
+                <button class="button-icon" pButton icon="pi pi-trash" class="p-button-text"
+                    (click)="deleteTypeEvent(tipoEvento)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
